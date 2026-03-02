@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Use iPhone as Microphone — Bluetooth Mic App for Any Speaker</title>
+  <meta name="description" content="Turn your iPhone into a wireless Bluetooth microphone. Stream to any speaker, record, karaoke mode, voice effects. 300,000 users. Free on iOS.">
+  <meta name="keywords" content="use iphone as microphone, iphone bluetooth microphone, phone as mic, mic to speaker app, karaoke bluetooth speaker, microphone app iphone, use phone as microphone">
+
+  <meta property="og:title" content="iPhone as Bluetooth Mic — Microphone Live + Rec">
+  <meta property="og:description" content="Turn your iPhone into a wireless mic for any Bluetooth speaker. Live stream, record, karaoke. 300K users. Free.">
+  <meta property="og:url" content="https://olegbuilds.github.io/microphone-live">
+
+  <link rel="canonical" href="https://olegbuilds.github.io/microphone-live">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --dark: #0f0f0f;
+      --accent: #e8440a;
+      --accent2: #1a56db;
+      --muted: #6b6b6b;
+      --border: #e5e5e5;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-badge {
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .nav-cta {
+      background: var(--dark);
+      color: white;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff3e0;
+      color: #e65100;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dark);
+      color: white;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.15s, background 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); background: var(--accent); }
+    .btn-primary svg { width: 18px; height: 18px; }
+
+    .hero-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* VISUAL — Phone mockup with animated signal */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone-wrap {
+      position: relative;
+      width: 200px;
+      height: 360px;
+    }
+
+    .phone-body {
+      width: 200px;
+      height: 360px;
+      background: var(--dark);
+      border-radius: 36px;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 3px;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+      border-radius: 33px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .mic-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse-mic 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-mic {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(232,68,10,0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(232,68,10,0); }
+    }
+
+    .mic-icon svg { width: 28px; height: 28px; fill: white; }
+
+    .wave-bars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 32px;
+    }
+
+    .wave-bars span {
+      width: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+      animation: wavebar 1s ease-in-out infinite;
+    }
+    .wave-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+    .wave-bars span:nth-child(2) { height: 20px; animation-delay: 0.15s; }
+    .wave-bars span:nth-child(3) { height: 32px; animation-delay: 0.3s; }
+    .wave-bars span:nth-child(4) { height: 20px; animation-delay: 0.45s; }
+    .wave-bars span:nth-child(5) { height: 8px; animation-delay: 0.6s; }
+
+    @keyframes wavebar {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    .phone-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Signal rings */
+    .signal-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(232,68,10,0.3);
+      animation: ring-expand 3s ease-out infinite;
+    }
+    .signal-ring:nth-child(1) { width: 260px; height: 260px; top: 50px; left: -30px; animation-delay: 0s; }
+    .signal-ring:nth-child(2) { width: 340px; height: 340px; top: 10px; left: -70px; animation-delay: 1s; }
+    .signal-ring:nth-child(3) { width: 420px; height: 420px; top: -30px; left: -110px; animation-delay: 2s; }
+
+    @keyframes ring-expand {
+      0% { opacity: 0.6; transform: scale(0.8); }
+      100% { opacity: 0; transform: scale(1.1); }
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 0 0 80px;
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* HOW IT WORKS */
+    .section { padding: 60px 0; }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--dark);
+      color: white;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 48px;
+    }
+
+    /* STEPS */
+    .steps { display: grid; gap: 0; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      gap: 24px;
+    }
+
+    .step:last-child { border-bottom: 1px solid var(--border); }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--border);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .step h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .step p { color: var(--muted); line-height: 1.6; font-size: 16px; }
+
+    /* FEATURES GRID */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    @media (max-width: 700px) { .features { grid-template-columns: 1fr 1fr; } }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .feature-emoji { font-size: 24px; margin-bottom: 12px; display: block; }
+    .feature h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .feature p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+    /* USE CASES */
+    .usecases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 700px) { .usecases { grid-template-columns: 1fr; } }
+
+    .usecase {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .usecase-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .usecase h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .usecase p { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    /* FAQ */
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-item h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+    .faq-item p { color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .faq-item a { color: var(--accent2); text-decoration: none; }
+
+    /* BOTTOM CTA */
+    .cta-block {
+      background: var(--dark);
+      border-radius: 24px;
+      padding: 60px 48px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta-block h2 { color: white; margin-bottom: 12px; }
+    .cta-block p { color: rgba(255,255,255,0.5); font-size: 17px; margin-bottom: 32px; }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--dark);
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-white svg { width: 18px; height: 18px; }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer p { color: var(--muted); font-size: 13px; font-family: 'DM Mono', monospace; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--dark); }
+    .footer-links { display: flex; gap: 24px; }
+
+    /* COMPAT BADGES */
+    .compat {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .badge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Microphone app Bluetooth Live",
+  "description": "Turn your iPhone into a wireless Bluetooth microphone. Stream to any speaker, record simultaneously, karaoke mode, voice effects. Used by 300,000 people worldwide.",
+  "operatingSystem": "iOS",
+  "applicationCategory": "MusicApplication",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "24" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use my iPhone as a Bluetooth microphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Download Microphone Live + Rec on the App Store, connect your Bluetooth speaker, open the app and tap the mic button. Your iPhone instantly becomes a wireless microphone streaming to any Bluetooth speaker, AirPods, or JBL speaker. No cables or extra hardware needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best app to use iPhone as a microphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microphone Live + Rec is the best iPhone microphone app in 2026, with 300,000 users and a 4.8 rating. It supports live streaming to Bluetooth speakers, simultaneous recording, karaoke mode, and professional voice effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my phone as a microphone for a Bluetooth speaker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. With Microphone Live + Rec, your iPhone connects to any Bluetooth speaker via the standard Bluetooth connection. Open the app, tap to go live, and your voice streams to the speaker in real time. Works with JBL, Bose, AirPods, gaming headsets, and any Bluetooth audio device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does iPhone microphone app work for karaoke?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Microphone Live + Rec includes a dedicated Karaoke Mode that lets you sing along with music playing through your Bluetooth speaker while your voice comes through loud and clear simultaneously. Perfect for parties and home karaoke."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I record while using my iPhone as a microphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this is the unique feature of Microphone Live + Rec. Version 3.0 introduced simultaneous Live + Rec mode: you stream to your speaker AND record at the same time. No other free app does both simultaneously."
+      }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use iPhone as a Bluetooth microphone",
+  "description": "Step by step guide to turn your iPhone into a wireless Bluetooth microphone for any speaker",
+  "step": [
+    { "@type": "HowToStep", "name": "Download the app", "text": "Download Microphone Live + Rec free from the App Store." },
+    { "@type": "HowToStep", "name": "Connect your Bluetooth speaker", "text": "Pair your Bluetooth speaker, AirPods, or headset to your iPhone in iOS Settings." },
+    { "@type": "HowToStep", "name": "Open the app and go live", "text": "Open Microphone Live + Rec, select your output device, and tap the mic button. Your voice instantly streams to the speaker." },
+    { "@type": "HowToStep", "name": "Optional: hit record", "text": "Tap the record button to capture your session simultaneously while streaming live." }
+  ]
+}
+</script>
+
+<div class="container">
+  <nav>
+    <div class="logo">🎙 <span>mic</span>live</div>
+    <div class="nav-badge">300K Users · 4.8 ★</div>
+    <a href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157" class="nav-cta">Get App Free</a>
+  </nav>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">📱 iPhone Microphone App</div>
+      <h1>Your iPhone is already a <em>pro mic</em></h1>
+      <p class="hero-sub">Turn your iPhone into a wireless Bluetooth microphone for any speaker. Stream live, record simultaneously, karaoke mode — one tap.</p>
+      <div class="hero-actions">
+        <a href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download Free
+        </a>
+      </div>
+      <p class="hero-note" style="margin-top:16px">Free · iOS 17.6+ · No setup needed</p>
+      <div class="compat">
+        <span class="badge">🔵 JBL</span>
+        <span class="badge">🎧 AirPods</span>
+        <span class="badge">🔊 Bose</span>
+        <span class="badge">🎮 Gaming headsets</span>
+        <span class="badge">📻 Any BT speaker</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="signal-ring"></div>
+      <div class="signal-ring"></div>
+      <div class="signal-ring"></div>
+      <div class="phone-wrap">
+        <div class="phone-body">
+          <div class="phone-screen">
+            <div class="mic-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5zm6 6c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+            </div>
+            <div class="wave-bars">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="phone-label">live streaming</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">300K</div>
+      <div class="stat-label">Users worldwide</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.8★</div>
+      <div class="stat-label">App Store rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">14</div>
+      <div class="stat-label">Languages</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="section-tag">How it works</div>
+    <h2>Use iPhone as mic<br>in 4 steps</h2>
+
+    <div class="steps" itemscope itemtype="https://schema.org/HowTo">
+      <meta itemprop="name" content="How to use iPhone as a Bluetooth microphone">
+
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <div class="step-num">01</div>
+        <div>
+          <h3 itemprop="name">Download the app</h3>
+          <p itemprop="text">Get Microphone Live + Rec free from the App Store. No account needed, no setup — just open and go.</p>
+        </div>
+      </div>
+
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <div class="step-num">02</div>
+        <div>
+          <h3 itemprop="name">Connect your Bluetooth speaker</h3>
+          <p itemprop="text">Pair any Bluetooth speaker, AirPods, gaming headset, or JBL to your iPhone in iOS Settings. The app automatically detects all connected audio devices.</p>
+        </div>
+      </div>
+
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <div class="step-num">03</div>
+        <div>
+          <h3 itemprop="name">Tap to go live</h3>
+          <p itemprop="text">Open the app, select your output device, and tap the mic button. Your voice instantly streams to the speaker in real time. Choose from 5 professional audio presets: Studio, Podcast, Gaming, Outdoor, Conference.</p>
+        </div>
+      </div>
+
+      <div class="step" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+        <div class="step-num">04</div>
+        <div>
+          <h3 itemprop="name">Record while you stream (unique feature)</h3>
+          <p itemprop="text">Hit record during any live session. Capture your performance, speech, or meeting while streaming simultaneously — the only free app that does both at once.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="section-tag">Who uses it</div>
+    <h2>One app,<br>many uses</h2>
+
+    <div class="usecases">
+      <div class="usecase">
+        <span class="usecase-icon">🎤</span>
+        <h3>Karaoke at home</h3>
+        <p>Turn any room into a karaoke stage. Sing along with music playing through your Bluetooth speaker while your voice comes through loud and clear. Perfect for parties and family nights.</p>
+      </div>
+      <div class="usecase">
+        <span class="usecase-icon">🎙️</span>
+        <h3>Podcasting & recording</h3>
+        <p>Use your iPhone as a wireless studio mic. Stream to your speaker setup and record simultaneously in Studio Quality preset. No extra hardware needed.</p>
+      </div>
+      <div class="usecase">
+        <span class="usecase-icon">🎮</span>
+        <h3>Gaming & Discord</h3>
+        <p>Clear voice chat for Discord, Twitch, and gaming. The Gaming preset is tuned to cut background noise while keeping your voice sharp and present.</p>
+      </div>
+      <div class="usecase">
+        <span class="usecase-icon">📣</span>
+        <h3>Presentations & events</h3>
+        <p>Use your iPhone as a wireless PA microphone for presentations, announcements, or small events. No cables, no setup — just connect and speak.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="section-tag">Features</div>
+    <h2>Everything you need<br>to go wireless</h2>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-emoji">🔴</span>
+        <h3>Live + Rec</h3>
+        <p>Stream to speaker AND record simultaneously. New in version 3.0.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-emoji">🎚️</span>
+        <h3>Mic Boost</h3>
+        <p>Amplify your microphone signal so you're always heard, even on quiet devices.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-emoji">🎭</span>
+        <h3>12 Voice Effects</h3>
+        <p>Robot, Alien, Chipmunk, Cave, Hall, Monster, Darth Vader, and more.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-emoji">🎵</span>
+        <h3>Karaoke Mode</h3>
+        <p>Sing over music playing through your speaker. Your voice comes through separately.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-emoji">🔇</span>
+        <h3>Noise Reduction</h3>
+        <p>Smart noise reduction and wind filter. Auto-gain keeps volume consistent.</p>
+      </div>
+      <div class="feature">
+        <span class="feature-emoji">🔵</span>
+        <h3>Bluetooth</h3>
+        <p>Works with any Bluetooth device: JBL, Bose, AirPods, gaming headsets, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-tag">FAQ</div>
+    <h2>Common questions</h2>
+
+    <div class="faq-item">
+      <h3>How do I use my iPhone as a Bluetooth microphone?</h3>
+      <p>Download <a href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157">Microphone Live + Rec</a>, connect your Bluetooth speaker in iOS Settings, open the app and tap the mic button. Your iPhone instantly becomes a wireless microphone. No cables or extra hardware needed.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the best app to use iPhone as a microphone?</h3>
+      <p>Microphone Live + Rec is the best iPhone microphone app in 2026, trusted by 300,000 users with a 4.8 App Store rating. It's the only app that streams to Bluetooth speakers AND records simultaneously, with professional voice presets and karaoke mode.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does it work with JBL, Bose, and AirPods?</h3>
+      <p>Yes. The app works with any Bluetooth audio device — JBL speakers, Bose speakers, AirPods, Sony headphones, gaming headsets, and any other Bluetooth speaker or headset that pairs with your iPhone.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I use it for karaoke?</h3>
+      <p>Yes, there's a dedicated Karaoke Mode. Play music through your Bluetooth speaker, activate karaoke mode in the app, and your voice comes through the same speaker on top of the music. Great for parties and home karaoke nights.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I record while streaming live?</h3>
+      <p>Yes — this is the unique feature introduced in version 3.0. Live + Rec mode lets you stream to your speaker and record at the same time. Your recordings are saved to your library and can be renamed, organized, and exported.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is there a latency issue with Bluetooth?</h3>
+      <p>The app shows real-time latency info so you know exactly what to expect. For presentations and karaoke, the latency is imperceptible. For the lowest possible latency, use wired headphones connected via Lightning or USB-C adapter.</p>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <div class="cta-block">
+    <h2>Turn your iPhone<br>into a wireless mic</h2>
+    <p>Free to download. Works with any Bluetooth speaker.</p>
+    <a href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157" class="btn-white">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on App Store — Free
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 Microphone Live + Rec · Oleg Proskurin</p>
+    <div class="footer-links">
+      <a href="https://aihelper.notion.site/Privacy-Policy-22efb6eb509080f2ae8ad2363546a865">Privacy</a>
+      <a href="https://aihelper.notion.site/Terms-Conditions-22efb6eb509080fda5adcb61f3a8ed8d">Terms</a>
+      <a href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157">App Store</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
