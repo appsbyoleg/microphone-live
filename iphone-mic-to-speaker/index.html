@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>How to Send iPhone Mic to a Speaker | Bluetooth & Live Mic Guide</title>
+  <meta
+    name="description"
+    content="Learn how to send your iPhone microphone to a speaker. Use live mic output with Bluetooth speakers, karaoke speakers, AirPods, and wired audio setups."
+  />
+  <meta
+    name="keywords"
+    content="iphone mic to speaker, send iphone mic to speaker, iphone microphone through speaker, iphone mic through bluetooth speaker, use iphone as speaker microphone, live microphone app iphone"
+  />
+  <link rel="canonical" href="https://appsbyoleg.github.io/microphone-live/iphone-mic-to-speaker/" />
+
+  <meta property="og:title" content="How to Send iPhone Mic to a Speaker" />
+  <meta
+    property="og:description"
+    content="Use your iPhone as a live microphone and play your voice through a Bluetooth or wired speaker."
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://appsbyoleg.github.io/microphone-live/iphone-mic-to-speaker/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Send iPhone Mic to a Speaker" />
+  <meta
+    name="twitter:description"
+    content="Simple guide to play your iPhone microphone through a speaker for karaoke, announcements, presentations, and small events."
+  />
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --card-2: #182140;
+      --text: #f3f6ff;
+      --muted: #b9c2dd;
+      --line: #2a355e;
+      --accent: #6ea8ff;
+      --accent-2: #8ef0d2;
+      --max: 860px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0d1327 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 28px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .lead {
+      font-size: 20px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: rgba(18, 25, 51, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 22px 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: 20px 0;
+    }
+
+    .grid .mini {
+      background: var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .mini strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .mini span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 22px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #08101f;
+      font-weight: 700;
+      border: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .steps {
+      counter-reset: step;
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      position: relative;
+      margin: 0 0 14px;
+      padding: 16px 16px 16px 58px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #08101f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .note {
+      font-size: 15px;
+      color: var(--muted);
+      opacity: 0.95;
+    }
+
+    .faq details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+      list-style: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq p {
+      margin-top: 12px;
+      font-size: 17px;
+    }
+
+    .related a {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 38px 0 60px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 18px;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p, ul, ol {
+        font-size: 17px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Send iPhone Mic to a Speaker",
+    "description": "Step-by-step guide to play iPhone microphone audio through a Bluetooth or wired speaker.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Connect your speaker",
+        "text": "Pair your Bluetooth speaker or connect a wired output to your iPhone."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Open the microphone app",
+        "text": "Launch Microphone Live + Rec on your iPhone or iPad."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose the output device",
+        "text": "Select the speaker or audio output you want to use."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Enable live microphone",
+        "text": "Turn on live microphone mode so your voice plays through the selected speaker."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Adjust sound settings",
+        "text": "Use mic boost, presets, and recording if needed."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I send iPhone mic audio to a speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. With a live microphone app, your iPhone microphone can play through a Bluetooth speaker, wired speaker, or compatible audio output."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use my iPhone microphone with a Bluetooth speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Pair the Bluetooth speaker with your iPhone, open the microphone app, choose the speaker as output, and enable live microphone mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there delay when using iPhone mic through a speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There can be some delay, especially over Bluetooth. Wired outputs or lower-latency devices usually perform better."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I record while sending iPhone mic audio to a speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Some apps support both live microphone output and recording at the same time."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">iPhone Audio Guide</div>
+      <h1>How to Send iPhone Mic to a Speaker</h1>
+      <p class="lead">
+        You can use your iPhone as a live microphone and play your voice through a Bluetooth
+        speaker, karaoke speaker, headphones, or wired output. This setup works well for karaoke,
+        announcements, presentations, classroom speaking, rehearsals, and small events.
+      </p>
+
+      <div class="cta">
+        <a
+          class="button"
+          href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download on the App Store
+        </a>
+        <a class="button secondary" href="#setup-steps">See Setup Steps</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Can an iPhone microphone play through a speaker?</h2>
+      <p>
+        Yes. With the right live microphone app, your iPhone can capture your voice and send it
+        to a connected speaker in real time. For most users, this is the simplest way to create a
+        portable voice amplification setup without buying extra microphone hardware.
+      </p>
+      <div class="grid">
+        <div class="mini">
+          <strong>Bluetooth speaker</strong>
+          <span>Fast wireless setup for karaoke, speaking, and casual live use.</span>
+        </div>
+        <div class="mini">
+          <strong>Wired output</strong>
+          <span>Better option when you want the lowest possible latency.</span>
+        </div>
+        <div class="mini">
+          <strong>Karaoke speaker</strong>
+          <span>Useful for singing, parties, and home entertainment setups.</span>
+        </div>
+        <div class="mini">
+          <strong>Headphones or headset</strong>
+          <span>Good for practice, monitoring, and private voice playback.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Best ways to send iPhone mic audio to a speaker</h2>
+
+      <h3>1. Bluetooth speaker</h3>
+      <p>
+        This is the easiest and most common setup. Pair your speaker, open the app, and route your
+        live microphone audio to it. It works well for karaoke, casual announcements, and small rooms.
+      </p>
+
+      <h3>2. Wired speaker or audio adapter</h3>
+      <p>
+        If you want lower delay, wired output is usually better. This can help when timing matters
+        more, such as rehearsals, speaking practice, or tighter live monitoring.
+      </p>
+
+      <h3>3. Karaoke or party speaker</h3>
+      <p>
+        A lot of users want a simple “phone mic to speaker” setup for singing or speaking at home.
+        A karaoke speaker is one of the most natural use cases for this page.
+      </p>
+
+      <h3>4. Headphones or headset output</h3>
+      <p>
+        This setup is useful for voice monitoring, practice, and checking how your voice sounds
+        with presets, boost, and live effects.
+      </p>
+    </section>
+
+    <section id="setup-steps">
+      <h2>How to connect iPhone mic to a speaker</h2>
+      <p>
+        If you want the fastest setup, follow these steps.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <strong>Connect your speaker</strong><br />
+          Pair your Bluetooth speaker in iPhone settings, or connect a wired output if that is your preferred setup.
+        </li>
+        <li>
+          <strong>Open Microphone Live + Rec</strong><br />
+          Launch the app on your iPhone or iPad.
+        </li>
+        <li>
+          <strong>Choose your output device</strong><br />
+          Select the speaker, headphones, or output destination you want to use.
+        </li>
+        <li>
+          <strong>Enable live microphone mode</strong><br />
+          Start speaking and send your voice to the selected speaker.
+        </li>
+        <li>
+          <strong>Adjust volume and sound</strong><br />
+          Use mic boost and voice presets if you want stronger output or a different sound character.
+        </li>
+        <li>
+          <strong>Record if needed</strong><br />
+          Save your live session while sending audio to the speaker, which is useful for practice, content creation, or checking your setup later.
+        </li>
+      </ol>
+
+      <p class="note">
+        Note: Bluetooth can add some delay depending on the speaker model and connection quality.
+        For the lowest-latency result, wired output is usually the better choice.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Bluetooth delay: what to expect</h2>
+      <p>
+        The biggest question users have is delay. The answer is simple: yes, Bluetooth can introduce
+        latency, but whether it matters depends on your use case.
+      </p>
+      <ul>
+        <li>For karaoke, casual speaking, announcements, and home use, Bluetooth often works well enough.</li>
+        <li>For the lowest delay, wired audio output is usually better.</li>
+        <li>Speaker quality matters. Some Bluetooth devices perform better than others.</li>
+        <li>Practice and presentation use cases are often more forgiving than tightly timed music performance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Best use cases for iPhone mic to speaker setup</h2>
+      <div class="grid">
+        <div class="mini">
+          <strong>Karaoke</strong>
+          <span>Use your iPhone as a simple live microphone for singing through a speaker.</span>
+        </div>
+        <div class="mini">
+          <strong>Announcements</strong>
+          <span>Speak louder in small rooms, events, or gatherings without extra gear.</span>
+        </div>
+        <div class="mini">
+          <strong>Presentations</strong>
+          <span>Useful for classrooms, office demos, or group speaking situations.</span>
+        </div>
+        <div class="mini">
+          <strong>Practice and rehearsal</strong>
+          <span>Monitor your voice live and improve delivery, volume, and clarity.</span>
+        </div>
+        <div class="mini">
+          <strong>Church or meetings</strong>
+          <span>Simple voice amplification for small indoor spaces.</span>
+        </div>
+        <div class="mini">
+          <strong>Party speaker setup</strong>
+          <span>Quick wireless voice output for home parties and casual event hosting.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why use Microphone Live + Rec</h2>
+      <p>
+        Microphone Live + Rec is built for people who want a fast iPhone mic-to-speaker setup
+        without extra complexity. It combines live microphone output, recording, voice presets,
+        and volume boost in one app.
+      </p>
+      <ul>
+        <li>Live microphone output to speaker</li>
+        <li>Works with Bluetooth audio devices</li>
+        <li>Mic boost for stronger voice presence</li>
+        <li>Voice presets for different speaking styles</li>
+        <li>Record while using live output</li>
+      </ul>
+      <div class="cta">
+        <a
+          class="button"
+          href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open App Store
+        </a>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+
+      <details open>
+        <summary>Can I send iPhone mic audio to a speaker?</summary>
+        <p>
+          Yes. A live microphone app can route your iPhone microphone audio to a Bluetooth speaker,
+          wired speaker, or another supported audio output.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I use my iPhone microphone with a Bluetooth speaker?</summary>
+        <p>
+          Yes. Pair the speaker, choose it as output, and enable live microphone mode in the app.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is there delay when using iPhone mic through a speaker?</summary>
+        <p>
+          There can be some delay, especially over Bluetooth. Wired output is usually better when you want the lowest possible latency.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I record while sending iPhone mic audio to a speaker?</summary>
+        <p>
+          Yes. Some apps support both live output and recording together, which is useful for practice and content creation.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does this setup work for karaoke?</summary>
+        <p>
+          Yes. Karaoke is one of the most common use cases for sending iPhone mic audio to a speaker.
+        </p>
+      </details>
+
+      <details>
+        <summary>Does it work with JBL, Bose, AirPods, and other Bluetooth devices?</summary>
+        <p>
+          Yes. The setup can work with many common Bluetooth speakers, headphones, and audio devices, depending on the connection and output routing.
+        </p>
+      </details>
+    </section>
+
+    <section class="related">
+      <h2>Related guides</h2>
+      <a href="/microphone-live/use-iphone-as-microphone/">How to Use Your iPhone as a Microphone</a>
+      <a href="/microphone-live/iphone-bluetooth-microphone/">Use iPhone as a Bluetooth Microphone</a>
+      <a href="/microphone-live/iphone-karaoke-microphone/">iPhone Karaoke Microphone Guide</a>
+      <a href="/microphone-live/microphone-app-for-speaker/">Best Microphone App for Speaker Use</a>
+    </section>
+
+    <footer>
+      <p>
+        This guide is for iPhone and iPad users who want the simplest way to send microphone audio
+        to a speaker for karaoke, speaking, practice, and live voice output.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
