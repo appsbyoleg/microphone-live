@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Use iPhone as a Microphone for JBL Speaker | Live Mic Guide</title>
+  <meta
+    name="description"
+    content="Learn how to use your iPhone as a microphone for a JBL speaker. Simple setup guide for live voice output, karaoke, announcements, and speaker use."
+  />
+  <meta
+    name="keywords"
+    content="iphone microphone for jbl speaker, use iphone as microphone for jbl speaker, iphone jbl microphone, iphone mic to jbl speaker, bluetooth microphone jbl iphone, karaoke microphone jbl iphone"
+  />
+  <link rel="canonical" href="https://appsbyoleg.github.io/microphone-live/iphone-microphone-for-jbl-speaker/" />
+
+  <meta property="og:title" content="Use iPhone as a Microphone for JBL Speaker" />
+  <meta
+    property="og:description"
+    content="Turn your iPhone into a live microphone for a JBL speaker. Simple guide for karaoke, speaking, and voice output."
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://appsbyoleg.github.io/microphone-live/iphone-microphone-for-jbl-speaker/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Use iPhone as a Microphone for JBL Speaker" />
+  <meta
+    name="twitter:description"
+    content="Simple guide to use your iPhone as a microphone with a JBL speaker for karaoke, announcements, and live voice output."
+  />
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --card-2: #182140;
+      --text: #f3f6ff;
+      --muted: #b9c2dd;
+      --line: #2a355e;
+      --accent: #6ea8ff;
+      --accent-2: #8ef0d2;
+      --max: 860px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0d1327 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      padding: 56px 0 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 28px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .lead {
+      font-size: 20px;
+      max-width: 760px;
+    }
+
+    .card {
+      background: rgba(18, 25, 51, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 22px 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin: 20px 0;
+    }
+
+    .grid .mini {
+      background: var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .mini strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .mini span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    ul, ol {
+      margin: 0 0 18px 22px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #08101f;
+      font-weight: 700;
+      border: none;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .steps {
+      counter-reset: step;
+      margin: 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      position: relative;
+      margin: 0 0 14px;
+      padding: 16px 16px 16px 58px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #08101f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .note {
+      font-size: 15px;
+      color: var(--muted);
+      opacity: 0.95;
+    }
+
+    .faq details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+      list-style: none;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq p {
+      margin-top: 12px;
+      font-size: 17px;
+    }
+
+    .related a {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 38px 0 60px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 18px;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p, ul, ol {
+        font-size: 17px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to use iPhone as a microphone for a JBL speaker",
+    "description": "Step-by-step guide to connect your iPhone microphone to a JBL speaker for live voice output.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Pair your JBL speaker",
+        "text": "Connect your JBL speaker to your iPhone using Bluetooth."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Open the microphone app",
+        "text": "Launch Microphone Live + Rec on your iPhone or iPad."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Choose the JBL speaker as output",
+        "text": "Select the connected JBL speaker inside the app."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Enable live microphone mode",
+        "text": "Start routing your voice from the iPhone microphone to the JBL speaker."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Adjust boost or presets if needed",
+        "text": "Use mic boost, presets, and recording depending on your setup."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I use my iPhone as a microphone for a JBL speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. With a live microphone app, your iPhone can work as a microphone and send your voice to a connected JBL speaker."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I connect iPhone mic to a JBL speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pair the JBL speaker with your iPhone over Bluetooth, open the microphone app, choose the speaker as output, and enable live microphone mode."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there delay when using iPhone mic with a JBL speaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There can be some Bluetooth latency. The exact amount depends on the JBL model and connection conditions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use iPhone and JBL speaker for karaoke?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. A JBL speaker is one of the most common devices used for a simple iPhone karaoke microphone setup."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">JBL Speaker Guide</div>
+      <h1>How to Use Your iPhone as a Microphone for a JBL Speaker</h1>
+      <p class="lead">
+        You can use your iPhone as a live microphone for a JBL speaker with a simple app-based setup.
+        This works well for karaoke, announcements, speaking, practice, and casual live voice output.
+      </p>
+
+      <div class="cta">
+        <a
+          class="button"
+          href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download on the App Store
+        </a>
+        <a class="button secondary" href="#jbl-steps">See Setup Steps</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Can an iPhone work as a microphone with a JBL speaker?</h2>
+      <p>
+        Yes. With the right app, your iPhone can capture your voice and send it to a connected JBL speaker.
+        This is a popular setup for people who already own a JBL Bluetooth speaker and want a quick microphone
+        option without buying extra hardware.
+      </p>
+      <div class="grid">
+        <div class="mini">
+          <strong>Karaoke</strong>
+          <span>Use your iPhone and JBL speaker for casual home karaoke and singing.</span>
+        </div>
+        <div class="mini">
+          <strong>Announcements</strong>
+          <span>Speak louder in small gatherings, home events, or simple setups.</span>
+        </div>
+        <div class="mini">
+          <strong>Practice</strong>
+          <span>Hear your voice through a larger speaker and improve delivery or confidence.</span>
+        </div>
+        <div class="mini">
+          <strong>Party speaker use</strong>
+          <span>JBL speakers are common choices for portable voice output and music setups.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why people use JBL speakers for this setup</h2>
+
+      <h3>1. JBL speakers are common and portable</h3>
+      <p>
+        Many users already have a JBL Bluetooth speaker at home, which makes it a natural device for a quick
+        iPhone microphone setup.
+      </p>
+
+      <h3>2. Good fit for karaoke and speaking</h3>
+      <p>
+        JBL speakers are often used for music, parties, and casual entertainment, so they are also a common
+        choice when someone wants to add live voice output.
+      </p>
+
+      <h3>3. Simple wireless connection</h3>
+      <p>
+        The main benefit is convenience. Pair the speaker, open the app, and start using your iPhone as a mic.
+      </p>
+
+      <h3>4. Easy home and event use</h3>
+      <p>
+        This setup is useful for family karaoke, home parties, simple announcements, and light voice amplification.
+      </p>
+    </section>
+
+    <section id="jbl-steps">
+      <h2>How to connect iPhone mic to a JBL speaker</h2>
+      <p>
+        If you want the simplest setup, follow these steps.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <strong>Pair your JBL speaker</strong><br />
+          Open Bluetooth settings on your iPhone and connect your JBL speaker.
+        </li>
+        <li>
+          <strong>Open Microphone Live + Rec</strong><br />
+          Launch the app on your iPhone or iPad.
+        </li>
+        <li>
+          <strong>Select the JBL speaker as output</strong><br />
+          Choose the connected JBL speaker as your live audio destination.
+        </li>
+        <li>
+          <strong>Enable live microphone mode</strong><br />
+          Start routing your voice from the iPhone microphone to the speaker.
+        </li>
+        <li>
+          <strong>Adjust sound settings</strong><br />
+          Use mic boost or presets if you want a stronger or cleaner vocal sound.
+        </li>
+        <li>
+          <strong>Record if needed</strong><br />
+          Save your live session while using the JBL speaker for voice output.
+        </li>
+      </ol>
+
+      <p class="note">
+        Note: Bluetooth can introduce delay. The amount of latency depends on the JBL speaker model and connection conditions.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Does a JBL speaker have delay with iPhone mic?</h2>
+      <p>
+        Sometimes yes. Bluetooth latency is the main thing to understand before using an iPhone as a microphone
+        for a JBL speaker.
+      </p>
+      <ul>
+        <li>Some delay is normal in Bluetooth microphone setups.</li>
+        <li>Different JBL models can feel slightly different in practice.</li>
+        <li>For casual karaoke, speaking, and home use, many people still find the setup useful.</li>
+        <li>Wired output is usually better when you want the lowest possible latency.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Best use cases for iPhone + JBL speaker microphone setup</h2>
+      <div class="grid">
+        <div class="mini">
+          <strong>Home karaoke</strong>
+          <span>Sing through your JBL speaker without needing a separate wireless microphone.</span>
+        </div>
+        <div class="mini">
+          <strong>Small parties</strong>
+          <span>Use your iPhone for casual announcements, hosting, or speaking.</span>
+        </div>
+        <div class="mini">
+          <strong>Speech practice</strong>
+          <span>Hear your voice on a bigger speaker and improve clarity or confidence.</span>
+        </div>
+        <div class="mini">
+          <strong>Simple events</strong>
+          <span>Good for light voice amplification in small spaces.</span>
+        </div>
+        <div class="mini">
+          <strong>Live + Record</strong>
+          <span>Use the speaker output and save the session at the same time.</span>
+        </div>
+        <div class="mini">
+          <strong>Portable setup</strong>
+          <span>Easy combination for travel, outdoor use, or quick room setups.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Why use Microphone Live + Rec with a JBL speaker</h2>
+      <p>
+        Microphone Live + Rec is a strong fit if you want a simple iPhone-to-JBL microphone setup.
+        It focuses on live voice output and adds useful extras like mic boost, presets, and recording.
+      </p>
+      <ul>
+        <li>Live microphone output to Bluetooth speaker</li>
+        <li>Works well with common speaker use cases</li>
+        <li>Mic boost for stronger voice level</li>
+        <li>Voice presets for speech and karaoke</li>
+        <li>Record while using live speaker output</li>
+      </ul>
+      <div class="cta">
+        <a
+          class="button"
+          href="https://apps.apple.com/us/app/microphone-app-bluetooth-live/id6748276157"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open App Store
+        </a>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h2>FAQ</h2>
+
+      <details open>
+        <summary>Can I use my iPhone as a microphone for a JBL speaker?</summary>
+        <p>
+          Yes. A live microphone app can turn your iPhone into a microphone and send your voice to a connected JBL speaker.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I connect iPhone mic to a JBL speaker?</summary>
+        <p>
+          Pair the JBL speaker over Bluetooth, choose it as output inside the app, and enable live microphone mode.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is there delay when using iPhone mic with a JBL speaker?</summary>
+        <p>
+          Yes, some Bluetooth delay can happen. The amount depends on the speaker model and connection quality.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I use iPhone and JBL speaker for karaoke?</summary>
+        <p>
+          Yes. This is one of the most common use cases for this setup.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I record while using my iPhone with a JBL speaker?</summary>
+        <p>
+          Yes. Some apps support live speaker output and recording at the same time.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is this setup good for parties and announcements?</summary>
+        <p>
+          Yes. It works well for casual party use, small gatherings, and simple voice amplification.
+        </p>
+      </details>
+    </section>
+
+    <section class="related">
+      <h2>Related guides</h2>
+      <a href="/microphone-live/use-iphone-as-microphone/">How to Use Your iPhone as a Microphone</a>
+      <a href="/microphone-live/iphone-mic-to-speaker/">How to Send iPhone Mic to a Speaker</a>
+      <a href="/microphone-live/iphone-bluetooth-microphone/">Use iPhone as a Bluetooth Microphone</a>
+      <a href="/microphone-live/microphone-app-for-speaker/">Best Microphone App for Speaker Use</a>
+    </section>
+
+    <footer>
+      <p>
+        This guide is for iPhone and iPad users who want a simple way to use a JBL speaker for karaoke,
+        speaking, practice, and live voice output with an iPhone microphone.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
